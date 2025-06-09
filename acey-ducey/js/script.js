@@ -1,3 +1,19 @@
+let card1 = document.getElementById("card1");
+let card2 = document.getElementById("card2");
+let card3 = document.getElementById("card3");
+let mock = document.getElementById("mock-message");
+let feedback = document.getElementById("feedback-message");
+let bet = document.getElementById("bet");
+let placebet = document.getElementById("placebet");
+let bank = document.getElementById("bank");
+let playagain = document.getElementById("playagain");
+let dealagain = document.getElementById("dealagain");
+let tempCard1, tempCard2, tempCard3;
+let button = document.getElementById("button1");
+let button2 = document.getElementById("button2");
+
+let cheat = document.getElementById("cheat");
+let feedbackMessage = document.getElementById("feedback-message");
 let suits = ["hearts", "diamonds", "clubs", "spades"];
 let values = [
   "ace",
@@ -14,7 +30,7 @@ let values = [
   "queen",
   "king",
 ];
-let mockmessage = [
+let mocks = [
   "Wow, bold choice—betting absolutely nothing.",
   "Your strategy is so subtle it looks exactly like fear.",
   "The cards waited… and you ghosted them!",
@@ -24,7 +40,6 @@ let mockmessage = [
   "A masterclass in hesitation. Truly inspiring.",
   "The cards waited… and you ghosted them!",
 ];
-
 let badbet = [
   "Great bet. For someone else. With money.",
   "That’s not a bet, that’s a fantasy. Reel it in.",
@@ -36,7 +51,6 @@ let badbet = [
   "Whoa there, high roller—your bank account disagrees.",
   "Bet’s too high, boss. Gotta bring it down.",
 ];
-
 let help = `
 🂡 How to Play Acey-Ducey
 High stakes. Low cards. Big attitude.<br><br>
@@ -365,18 +379,10 @@ ChatGPT said:<br>
 You got it, boss. Anytime you need more, just whistle—or, you know, type. 😎
 Good luck out there in cardland!`;
 document.getElementById("ai-prompt").innerHTML = ai;
-
-let card1 = document.getElementById("card1");
-let card2 = document.getElementById("card2");
-let card3 = document.getElementById("card3");
-let mock = document.getElementById("mock-message");
-let feedback = document.getElementById("feedback-message");
-
 document.addEventListener("DOMContentLoaded", function () {
   const element = document.getElementById("game");
   new CircleType(element).radius(350);
 });
-
 function drawCard() {
   let suit = Math.floor(Math.random() * suits.length);
   let value = Math.floor(Math.random() * values.length);
@@ -384,20 +390,21 @@ function drawCard() {
   console.log("img/" + values[value] + "_of_" + suits[suit] + ".png");
   return "img/" + values[value] + "_of_" + suits[suit] + ".png";
 }
-
 function getCardValue(cs) {
   for (let i = 0; i < values.length; i++) {
     if (cs.includes(values[i])) return i;
   }
 }
-
 function dealThreeCards() {
-  let tempCard1, tempCard2, tempCard3;
-  tempCard1 = drawCard();
-  do {
-    tempCard2 = drawCard();
-  } while (getCardValue(tempCard2) == getCardValue(tempCard1));
-
+  if (cheat.checked == true) {
+    tempCard1 = "img/" + values[0] + "_of_" + suits[2] + ".png";
+    tempCard2 = "img/" + values[12] + "_of_" + suits[1] + ".png";
+  } else {
+    tempCard1 = drawCard();
+    do {
+      tempCard2 = drawCard();
+    } while (getCardValue(tempCard2) == getCardValue(tempCard1));
+  }
   if (getCardValue(tempCard1) < getCardValue(tempCard2)) {
     card1.style.backgroundImage = "url('" + tempCard1 + "')";
     card2.style.backgroundImage = "url('" + tempCard2 + "')";
@@ -405,16 +412,9 @@ function dealThreeCards() {
     card1.style.backgroundImage = "url('" + tempCard2 + "')";
     card2.style.backgroundImage = "url('" + tempCard1 + "')";
   }
+
   tempCard3 = drawCard();
   card3.style.backgroundImage = "url(img/cardback.jpg)";
-}
-
-function ifWin() {
-  if (card3 > card1 && card3 < card2) {
-    document.getElementById("feedback-message").innerText = "You Win!";
-    // add moneys to bank
-    // change card3 border color
-  }
 }
 function displayHelp() {
   let popup = document.querySelector(".help");
@@ -433,3 +433,81 @@ function displayAi() {
     popup.style.display = "block";
   }
 }
+function placeBet() {
+  let betVal = bet.value ? parseInt(bet.value) : 0;
+  let bankVal = parseInt(bank.textContent);
+  let updatedBal;
+
+  if (betVal > bankVal) {
+    let badBetIndex = Math.floor(Math.random() * badbet.length);
+    let message = badbet[badBetIndex];
+    feedbackMessage.textContent = message;
+    dealagain.style.display = "inline-block";
+  } else if (betVal == 0) {
+    let mockIndex = Math.floor(Math.random() * mocks.length);
+    let message = mocks[mockIndex];
+    feedbackMessage.textContent = message;
+    dealagain.style.display = "inline-block";
+  } else {
+    bet.style.display = "none";
+    placebet.style.display = "none";
+    dealagain.style.display = "inline-block";
+    card3.style.backgroundImage = "url('" + tempCard3 + "')";
+    if (
+      getCardValue(card3.style.backgroundImage) >
+        getCardValue(card1.style.backgroundImage) &&
+      getCardValue(card3.style.backgroundImage) <
+        getCardValue(card2.style.backgroundImage)
+    ) {
+      feedbackMessage.textContent = "You Win";
+      updatedBal = bankVal + betVal;
+    } else {
+      feedbackMessage.textContent = "You Lose";
+      updatedBal = bankVal - betVal;
+    }
+    bank.textContent = "" + updatedBal;
+
+    // check if bust
+    if (bank.textContent == 0) {
+      feedbackMessage.textContent = "Out of Funds, Play again?";
+      //show play again button
+    } else if (bank.textContent >= 500) {
+      feedbackMessage.textContent = "You have beaten the house!";
+      //show play again button
+    }
+    // update button to play again
+  }
+}
+
+function swapButton() {
+  let popup = document.querySelector(".button-pushable");
+  let popup2 = document.querySelector(".betamount");
+  if (popup.style.display == "block") {
+    popup.style.display = "none";
+  } else {
+    popup.style.display = "block";
+  }
+  if (popup2.style.display == "block") {
+    popup2.style.display = "none";
+  } else {
+    popup2.style.display = "block";
+  }
+}
+
+function resetGame() {
+  window.location.reload();
+}
+function resetHand() {
+  bet.style.display = "inline-block";
+  placebet.style.display = "inline-block";
+  dealagain.style.display = "none";
+  feedbackMessage.textContent = "";
+  bet.value = "";
+  dealThreeCards();
+}
+button.addEventListener("click", () => {
+  button.classList.toggle("active");
+});
+button2.addEventListener("click", () => {
+  button2.classList.toggle("active");
+});

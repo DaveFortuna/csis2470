@@ -11,11 +11,12 @@
   padding: 10px;
   display: grid;
   width: fit-content;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
   border-radius: 5px;
 }
-.howto,
-.ai {
+
+.option-button {
   font-size: 24px;
   border-radius: 7px;
   width: 175px;
@@ -25,16 +26,19 @@
   box-shadow: 0 5px #999;
   transition: 0.1s;
 }
-.ai {
-  margin-left: 12px;
-}
-.howto:hover,
-.ai:hover {
+
+.option-button:hover {
   background-color: skyblue;
   cursor: pointer;
 }
-.howto:active,
-.ai:active {
+
+.option-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+  transition: 0.1s;
+}
+.option-button.active {
   background-color: #3e8e41;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
@@ -138,23 +142,15 @@ main {
   margin: 30px auto 20px auto;
   text-align: center;
   font-size: 24px;
-  border: solid orange 1px;
   width: 500px;
   height: 80px;
 }
 #feedback-message {
   margin: 20px auto 0px auto;
   z-index: 0;
-  font-size: 40px;
-  visibility: hidden;
-}
-#mock-message {
-  z-index: 1;
-  margin: auto;
-  margin-top: -50px;
   font-size: 30px;
-  /* visibility: hidden; */
 }
+
 .cardborder1,
 .cardborder2,
 .cardborder3 {
@@ -219,16 +215,16 @@ main {
   padding-left: 20px;
   height: 150px;
   border-radius: 0px 0px 10% 10%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 .player-left {
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: 1fr 1fr;
 }
 .player-right {
-  grid-template-rows: 1fr 1fr;
-  display: grid;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 .bank {
   margin: auto;
@@ -243,8 +239,10 @@ main {
 .bad-bet {
   margin: auto;
 }
-form {
-  margin: auto;
+#myform {
+  height: 100px;
+  width: 400px;
+  margin: 10px auto 0px auto;
   padding-bottom: 5px;
 }
 input::-webkit-outer-spin-button,
@@ -258,6 +256,13 @@ input[type="number"] {
   padding: 5px;
   border-radius: 5px;
   border: solid black 2px;
+}
+#dealagain,
+.shadow,
+.edge,
+.front,
+.text2 {
+  display: inline-block;
 }
 
 .button-pushable {
@@ -329,7 +334,7 @@ input[type="number"] {
   position: fixed;
   left: 400px;
   bottom: 20px;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 10px black;
 }
