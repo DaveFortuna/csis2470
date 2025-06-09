@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
 }
+
 .options {
   margin-top: 10px;
   margin-left: 10px;
@@ -122,6 +123,7 @@ h1 {
 body {
   background-image: url(../img/background.jpg);
   background-repeat: no-repeat;
+  overflow: hidden;
   background-size: contain;
   background-size: 100% 100%;
   min-height: 100vh;
