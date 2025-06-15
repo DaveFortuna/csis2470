@@ -30,6 +30,7 @@ main {
 }
 /* robot box css */
 .robot-model {
+  margin-top: 8px;
   box-sizing: border-box;
   border: solid black 1px;
   background-color: black;
