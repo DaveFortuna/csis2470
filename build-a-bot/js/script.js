@@ -30,7 +30,6 @@ let eyeColor = document.getElementById("eye-color");
 let robotColor = document.getElementById("robot-color");
 let reset = document.getElementById("reset");
 let randomRobot = document.getElementById("random-robot");
-console.log(safety);
 
 //event listeners
 sEdge.addEventListener("change", removeRoundEdge);
@@ -119,18 +118,27 @@ function random() {
     makeEyesRound();
   } else makeEyesSquare();
 
-  let randomHex =
-    "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0");
-  eyeColor.value = randomHex;
+  eyeColor.value = randomHex();
   for (let eye of eyes) {
-    eye.style.backgroundColor = randomHex;
+    eye.style.backgroundColor = eyeColor.value;
   }
-  randomHex =
-    "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0");
-  robotColor.value = randomHex;
+
+  robotColor.value = randomHex();
   for (let part of robotParts) {
-    part.style.backgroundColor = randomHex;
+    part.style.backgroundColor = robotColor.value;
   }
+}
+function randomHex() {
+  var result = "";
+  var hexValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
+  for (let x = 0; x < 6; x++) {
+    if (x == 0) {
+      result = "#";
+    }
+    var index = Math.floor(Math.random() * hexValues.length);
+    result += hexValues.at(index);
+  }
+  return result;
 }
 function defaultRobot() {
   removeRoundEdge();
