@@ -103,19 +103,19 @@ function random() {
 
   randomIndex = Math.floor(Math.random() * headShape.length);
   headShape[randomIndex].checked = true;
-  if (randomIndex == 0) {
+  if (randomIndex == 1) {
     makeHeadRound();
   } else makeHeadSquare();
 
   randomIndex = Math.floor(Math.random() * personality.length);
   personality[randomIndex].checked = true;
-  if (randomIndex == 0) {
+  if (randomIndex == 1) {
     evilEyes();
   } else goodEyes();
 
   randomIndex = Math.floor(Math.random() * eyeStyle.length);
   eyeStyle[randomIndex].checked = true;
-  if (randomIndex == 0) {
+  if (randomIndex == 1) {
     makeEyesRound();
   } else makeEyesSquare();
 
