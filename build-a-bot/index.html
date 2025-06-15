@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build-A-Bot</title>
+  </head>
+  <body>
+    <h1>Build-A-Bot</h1>
+    <main>
+      <div class="customize-panel">
+        <div class="form">
+          <h3>Safety</h3>
+          <label for="sharp-edge">Sharp Edges</label>
+          <input id="sharp-edge" name="safety" type="radio" checked />
+          <label for="round-edge">Round Edges</label>
+          <input id="round-edge" name="safety" type="radio" />
+          <h3>Head Shape</h3>
+          <label for="square-head">Square Head</label>
+          <input id="square-head" name="head-shape" type="radio" checked />
+          <label for="round-head">Round Head</label>
+          <input id="round-head" name="head-shape" type="radio" />
+          <h3>Personality</h3>
+          <label for="good">Good</label>
+          <input id="good" name="personality" type="radio" checked />
+          <label for="evil">Evil</label>
+          <input id="evil" name="personality" type="radio" />
+          <h3>Eye Style</h3>
+          <label for="square-eye">Square Eyes</label>
+          <input id="square-eye" name="eye-style" type="radio" checked />
+          <label for="round-eye">Round Eyes</label>
+          <input id="round-eye" name="eye-style" type="radio" />
+          <h3>Eye Color</h3>
+          <input id="eye-color" type="color" value="#FFFFFF" />
+          <h3>Robot Color</h3>
+          <input id="robot-color" type="color" value="#C0C0C0" />
+          <div class="button-box">
+            <button id="reset" onclick="defaultRobot();">Reset</button>
+            <button id="random-robot" class="random-robot" onclick="random();">
+              Random Robot
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="robot-model">
+        <div class="head">
+          <div class="left-eye"><div class="pupilL"></div></div>
+          <div class="right-eye"><div class="pupilR"></div></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="body"></div>
+        <div class="left-arm"></div>
+        <div class="right-arm"></div>
+        <div class="left-leg"></div>
+        <div class="right-leg"></div>
+      </div>
+    </main>
+  </body>
+</html>
