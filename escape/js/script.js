@@ -33,20 +33,23 @@ function moveRobot(e) {
       robot.style.left = robotLeft + "px";
     }
   }
-  if (
-    (robotTop == -80 && robotLeft == 400) ||
-    (robotTop == 240 && robotLeft == 880) ||
-    (robotTop == 560 && robotLeft == 400) ||
-    (robotTop == 240 && robotLeft == -80)
-  ) {
-    {
-      winGame();
-    }
+  if (robotTop == -80 && robotLeft == 400) {
+    robotTop -= 50;
+    robot.style.top = robotTop + "px";
+    winGame();
+  } else if (robotTop == 240 && robotLeft == 880) {
+    robotLeft += 50;
+    robot.style.left = robotLeft + "px";
+    winGame();
+  } else if (robotTop == 560 && robotLeft == 400) {
+    robotTop += 50;
+    robot.style.top = robotTop + "px";
+    winGame();
+  } else if (robotTop == 240 && robotLeft == -80) {
+    robotLeft -= 50;
+    robot.style.left = robotLeft + "px";
+    winGame();
   }
-
-  console.log(pressed);
-  console.log(robotTop + " moved verticle");
-  console.log(robotLeft + " moved horizontal");
 }
 function winGame() {
   resetButton.style.visibility = "visible";
