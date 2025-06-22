@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Audiowide";
+}
+
+body {
+  background-color: #70ad47;
+  align-items: center;
+}
+h1 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+img {
+  position: absolute;
+  left: 400px;
+  top: 240px;
+  transition: 0.5s;
+}
+main {
+  position: relative;
+  margin: 40px auto 0px auto;
+  width: 900px;
+  height: 480px;
+  display: grid;
+  grid-template-columns: repeat(11, 80px);
+  grid-template-rows: repeat(6, 80px);
+  border-radius: 10px;
+}
+main > div {
+  width: 80px;
+  height: 80px;
+}
+.box {
+  background-color: slategrey;
+}
+.top-opening {
+  border-top: none;
+}
+.bottom-opening {
+  border-bottom: none;
+}
+.left-opening {
+  border-left: none;
+}
+.right-opening {
+  border-right: none;
+}
+.top-wall {
+  border-top: black solid 5px;
+}
+.left-wall {
+  border-left: black solid 5px;
+}
+.right-wall {
+  border-right: black solid 5px;
+}
+.bottom-wall {
+  border-bottom: black solid 5px;
+}
+.instructions {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin: 50px auto 0px auto;
+  width: 900px;
+  height: fit-content;
+}
+.instructions > p {
+  font-size: 24px;
+  width: 350px;
+  padding: 10px;
+}
+span {
+  text-decoration: underline;
+}
+.movement {
+  height: 113px;
+}
+/* buttons */
+.button-box {
+  margin: auto 0px auto 130px;
+}
+.reset {
+  visibility: hidden;
+}
+button:hover:enabled {
+  background-color: goldenrod;
+  cursor: pointer;
+}
+
+button {
+  background-color: grey;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 7px;
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  margin: 0px auto 0px auto;
+  box-shadow: 0 5px #999;
+  transition: 0.1s;
+}
+
+button:active:enabled {
+  background-color: steelblue;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+  transition: 0.1s;
+}
