@@ -43,6 +43,7 @@ h1 {
 }
 .part {
   visibility: hidden;
+  cursor: pointer;
 }
 
 .head-part {
@@ -106,6 +107,9 @@ input[type="radio"] {
   height: 18px;
   margin-top: -1px;
   vertical-align: middle;
+}
+label {
+  font-size: 20px;
 }
 .clock {
   display: none;
