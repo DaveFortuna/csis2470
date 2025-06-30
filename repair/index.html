@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="banner">
+      Robo has fallen to pieces. Can you repair him in time?
+    </h1>
+    <main>
+      <div class="junkyard">
+        <h1>Robot Parts</h1>
+        <div class="random-parts">
+          <img
+            class="head-part part"
+            src="img/robot-head.png"
+            data-part="head"
+            draggable="true"
+          />
+          <img
+            class="body-part part"
+            src="img/robot-body.png"
+            data-part="body"
+            draggable="true"
+          />
+          <img
+            class="left-part part"
+            src="img/robot-left-arm.png"
+            data-part="left-arm"
+            draggable="true"
+          />
+          <img
+            class="right-part part"
+            src="img/robot-right-arm.png"
+            data-part="right-arm"
+            draggable="true"
+          />
+          <img
+            class="bolt-part part"
+            src="img/robot-fastener.png"
+            data-part="bolt"
+            draggable="true"
+          />
+        </div>
+      </div>
+      <div class="timer">
+        <h3>Assembly time</h3>
+        <div class="selector">
+          <div class="five-seconds">
+            <input name="select-time" id="five" value="5" type="radio" />
+            <label for="five">Five Seconds</label>
+          </div>
+          <div class="ten-seconds">
+            <input name="select-time" id="ten" value="10" type="radio" />
+            <label for="ten">Ten Seconds</label>
+          </div>
+          <div class="forever-seconds">
+            <input name="select-time" id="forever" value="" type="radio" />
+            <label for="forever">Forever</label>
+          </div>
+        </div>
+        <button class="start-assembly" onclick="start()">Start Assembly</button>
+        <div class="clock"></div>
+      </div>
+      <div class="assembly">
+        <h1>Assembly Area</h1>
+        <div class="assembly-area">
+          <div class="head part-box" data-box="head">head</div>
+          <div class="body part-box" data-box="body">body</div>
+          <div class="left-arm part-box" data-box="left-arm">left-arm</div>
+          <div class="right-arm part-box" data-box="right-arm">right-arm</div>
+          <div class="bolt part-box" data-box="bolt">bolt</div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
