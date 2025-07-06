@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Space Mono;
+}
+body {
+  background-image: url(../img/space.webp);
+}
+h1 {
+  font-size: 40px;
+  width: fit-content;
+  margin: 10px auto 10px auto;
+  color: deepskyblue;
+  text-shadow: 0px 0px 10px orange;
+}
+main {
+  width: 70vw;
+  height: 85vh;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.space {
+  height: 10px;
+}
+.intro {
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: deepskyblue;
+  box-shadow: 0px 0px 10px black;
+}
+h3 {
+  text-decoration: underline;
+  font-size: 24px;
+  width: fit-content;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+p {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin: 5px auto 20px auto;
+  width: 80%;
+}
+span {
+  text-decoration: underline;
+}
+form {
+  padding: 10px;
+  background-color: deepskyblue;
+  text-align: center;
+  width: 270px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px black;
+}
+label,
+input {
+  font-weight: bold;
+  display: block;
+  font-size: 20px;
+}
+input {
+  margin: 3px auto 10px auto;
+  padding: 2px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: darkgrey;
+}
+input:focus {
+  background-color: lightcyan;
+}
+/* button */
+input[type="submit"]:hover:enabled {
+  box-shadow: 0px 0px 20px gold;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  background-color: green;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 7px;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  font-weight: bolder;
+  margin: 0px auto 0px auto;
+  transition: 0.1s;
+}
+
+input[type="submit"]:active:enabled {
+  background-color: red;
+  box-shadow: 0px 0px 10px black;
+  transform: scale(0.9);
+  transition: 0.1s;
+}
+
+.feedback {
+  position: relative;
+  left: 303px;
+  bottom: 445px;
+  z-index: 1;
+  margin: 0 auto;
+  width: 310px;
+  height: 435px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  font-size: 16px;
+}
+div.feedback * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  padding-left: 10px;
+  height: 69px;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 0.5px;
+  margin-top: 0.5px;
+}
