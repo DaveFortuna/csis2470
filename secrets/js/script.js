@@ -12,10 +12,10 @@ let createAccount = document.getElementById("create-account");
 // Event Listeners
 user.addEventListener("input", isValidUser);
 pass.addEventListener("input", isValidPass);
-verify.addEventListener("input", isValidPass);
+if (verify != null) verify.addEventListener("input", isValidPass);
 user.addEventListener("input", isFormValid);
 pass.addEventListener("input", isFormValid);
-verify.addEventListener("input", isFormValid);
+if (verify != null) verify.addEventListener("input", isFormValid);
 
 // Set Attributes
 
