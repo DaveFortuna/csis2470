@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: tahoma;
+  background-image: url(../img/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  color: bisque;
+  font-size: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  text-shadow: 0px 0px 5px rgb(233, 208, 179);
+}
+img {
+  width: 80px;
+  height: 80px;
+  transition: all 1s;
+}
+
+.board-container {
+  display: grid;
+  grid-template-columns: 30px repeat(8, 80px) 30px;
+  grid-template-rows: 30px repeat(8, 80px) 30px;
+  gap: 0;
+  transition: all 1.5s;
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.square1,
+.square2 {
+  width: 80px;
+  height: 80px;
+  border: solid black 1px;
+}
+.inverted {
+  transform: rotate(180deg);
+}
+
+.dark {
+  background-color: dimgray;
+}
+.dark1 {
+  background-color: darkcyan;
+}
+.dark2 {
+  background-color: darkred;
+}
+.dark3 {
+  background-color: darkslateblue;
+}
+.dark4 {
+  background-color: darkgreen;
+}
+
+.light {
+  background-color: wheat;
+}
+.light1 {
+  background-color: white;
+}
+.light2 {
+  background-color: lightgreen;
+}
+.light3 {
+  background-color: lightcoral;
+}
+.light4 {
+  background-color: lightskyblue;
+}
+
+.board-container {
+  background-color: wheat;
+  border: 4px double #333;
+  border-radius: 10px;
+}
+/* Buttons */
+.button-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  margin-left: 10px;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+button:active {
+  background-color: darkcyan;
+}
+button:disabled {
+  background-color: darkgrey;
+}
