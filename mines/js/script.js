@@ -1,10 +1,13 @@
+let sound = new Audio("sounds/explosion.mp3");
+let delay = 1500;
+let soundPlayed = false;
 let pencil, world, base, randX, randY;
 let mines = [];
 let stars = [];
 window.addEventListener("resize", setup);
 setup();
 draw();
-img = document.getElementById("ship");
+img = document.querySelector("img");
 
 function setup() {
   window.addEventListener("keydown", moveShip);
@@ -52,7 +55,7 @@ function setup() {
 
     let m = new Rectangle(pencil, randX, randY, 50, 50, "grey");
 
-    if (!m.overlap(base)) {
+    if (!m.overlap(base) && !m.overlap(ship)) {
       mines.push(m);
       m.show();
     }
@@ -163,11 +166,17 @@ function endGame(won) {
   pencil.font = "50px fantasy";
   pencil.fillStyle = "lime";
   if (!won) {
+    img.setAttribute("src", "img/crashed2.png");
     pencil.fillText(
       loseMessage,
       world.width / 2 - loseLength / 2,
       world.height / 2
     );
+    if (!soundPlayed) {
+      sound.loop = false;
+      sound.play();
+      soundPlayed = true;
+    }
   } else {
     pencil.fillText(
       winMessage,
