@@ -5,9 +5,9 @@ let pencil, world, base, randX, randY;
 let mines = [];
 let stars = [];
 window.addEventListener("resize", setup);
+img = document.querySelector("img");
 setup();
 draw();
-img = document.querySelector("img");
 
 function setup() {
   window.addEventListener("keydown", moveShip);
@@ -60,6 +60,8 @@ function setup() {
       m.show();
     }
   }
+  img.setAttribute("src", "img/ship.png");
+  soundPlayed = false;
 }
 function draw() {
   pencil.clearRect(0, 0, world.width, world.height);
