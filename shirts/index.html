@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dial-Up threads</title>
+  </head>
+  <body>
+    <div class="space"></div>
+    <div class="title">
+      <h1>Welcome to Dial-Up Threads!</h1>
+      <div class="title-image">
+        <h1 class="banner-text">High Quality Custom T's</h1>
+      </div>
+    </div>
+
+    <main>
+      <div class="shirt-bg">
+        <div class="shirt-control">
+          <h2>Customize Your Shirt</h2>
+          <p>Decide here how you want your shirt to look.</p>
+          <fieldset>
+            <legend>Shirt Color</legend>
+            <div class="color-picker-container">
+              <label for="cp">Pick a color:</label>
+              <input id="cp" type="color" value="#ffffff" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Choose a Size</legend>
+            <label
+              ><input id="size-s" type="radio" name="size" value="S" />
+              Small</label
+            >
+            <label
+              ><input id="size-m" type="radio" name="size" value="M" />
+              Medium</label
+            >
+            <label
+              ><input id="size-l" type="radio" name="size" value="L" />
+              Large</label
+            >
+            <label
+              ><input id="size-xl" type="radio" name="size" value="XL" />
+              X-Large</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Shirt Pocket</legend>
+            <label for="l-pocket"
+              ><input type="radio" name="pocket" id="l-pocket" />Left side
+              pocket</label
+            >
+
+            <label for="r-pocket"
+              ><input type="radio" name="pocket" id="r-pocket" />Right side
+              pocket</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Optional Logo</legend>
+            <div class="logo-options">
+              <label>
+                <input id="bloodAngels" type="radio" name="logo" value="ba" />
+                <img src="img/bloodangels.png" alt="Blood Angels" />
+              </label>
+              <label>
+                <input
+                  id="emperorsChildren"
+                  type="radio"
+                  name="logo"
+                  value="ec"
+                />
+                <img src="img/emperorschildren.png" alt="Emperor's Children" />
+              </label>
+              <label>
+                <input id="ironHands" type="radio" name="logo" value="ih" />
+                <img src="img/ironhands.png" alt="Iron Hands" />
+              </label>
+              <label>
+                <input id="spaceWolves" type="radio" name="logo" value="sw" />
+                <img src="img/spacewolves.png" alt="Space Wolves" />
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Custom Text</legend>
+            <input
+              id="custom-text"
+              type="text"
+              placeholder="Enter your custom text"
+            />
+          </fieldset>
+        </div>
+
+        <div class="shirt-display">
+          <div id="shirt-body">
+            <div id="pocket"></div>
+            <div id="left-sleeve"></div>
+            <div id="right-sleeve"></div>
+            <div id="shirt-img" class="shirt-img"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
