@@ -8,31 +8,30 @@
     <title>Dial-Up threads</title>
   </head>
   <body>
-    <div class="space"></div>
     <div class="title">
       <h1>Welcome to Dial-Up Threads!</h1>
       <div class="title-image">
         <h1 class="banner-text">High Quality Custom T's</h1>
+        <button onclick="toCart()" class="cart-box" type="button">
+          <p class="item-num"></p>
+          <img class="cart-img" src="img/cart.png" alt="Cart" />
+        </button>
       </div>
     </div>
 
     <main>
+      <div class="start">
+        <p>Click Begin styling a Custom T</p>
+        <button class="start-button" onclick="displayControls()">Begin</button>
+      </div>
       <div class="shirt-bg">
         <div class="shirt-control">
           <h2>Customize Your Shirt</h2>
           <p>Decide here how you want your shirt to look.</p>
           <fieldset>
-            <legend>Shirt Color</legend>
-            <div class="color-picker-container">
-              <label for="cp">Pick a color:</label>
-              <input id="cp" type="color" value="#ffffff" />
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Choose a Size</legend>
+            <legend>Step 1. Choose a Size</legend>
             <label
-              ><input id="size-s" type="radio" name="size" value="S" />
+              ><input id="size-s" type="radio" name="size" value="S" checked />
               Small</label
             >
             <label
@@ -49,7 +48,18 @@
             >
           </fieldset>
           <fieldset>
-            <legend>Shirt Pocket</legend>
+            <legend>Step 2. Shirt Color</legend>
+            <div class="color-picker-container">
+              <label for="cp">Pick a color:</label>
+              <input id="cp" type="color" value="#800080" />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Step 3. Shirt Pocket</legend>
+            <label for="no-pocket"
+              ><input type="radio" name="pocket" id="no-pocket" />No
+              pocket</label
+            >
             <label for="l-pocket"
               ><input type="radio" name="pocket" id="l-pocket" />Left side
               pocket</label
@@ -61,11 +71,15 @@
             >
           </fieldset>
           <fieldset>
-            <legend>Optional Logo</legend>
+            <legend>Step 4. Optional Logo</legend>
             <div class="logo-options">
               <label>
                 <input id="bloodAngels" type="radio" name="logo" value="ba" />
-                <img src="img/bloodangels.png" alt="Blood Angels" />
+                <img
+                  class="bloodAngels"
+                  src="img/bloodangels.png"
+                  alt="Blood Angels"
+                />
               </label>
               <label>
                 <input
@@ -74,29 +88,54 @@
                   name="logo"
                   value="ec"
                 />
-                <img src="img/emperorschildren.png" alt="Emperor's Children" />
+                <img
+                  class="emperorsChildren"
+                  src="img/emperorschildren.png"
+                  alt="Emperor's Children"
+                />
               </label>
               <label>
                 <input id="ironHands" type="radio" name="logo" value="ih" />
-                <img src="img/ironhands.png" alt="Iron Hands" />
+                <img
+                  class="ironHands"
+                  src="img/ironhands.png"
+                  alt="Iron Hands"
+                />
               </label>
               <label>
                 <input id="spaceWolves" type="radio" name="logo" value="sw" />
-                <img src="img/spacewolves.png" alt="Space Wolves" />
+                <img
+                  class="spaceWolves"
+                  src="img/spacewolves.png"
+                  alt="Space Wolves"
+                />
               </label>
             </div>
+            <label
+              ><input
+                id="remove-img"
+                type="radio"
+                name="logo"
+                value="rm"
+              />Remove Image Logo</label
+            >
+            <p>Any image will keep you from adding text</p>
           </fieldset>
           <fieldset>
-            <legend>Custom Text</legend>
+            <legend>Step 5. Optional Custom Text</legend>
+            <p>Max of 40 characters.</p>
+            <p>Any text will keep you from selecting a image.</p>
             <input
+              maxlength="40"
               id="custom-text"
               type="text"
               placeholder="Enter your custom text"
             />
           </fieldset>
+          <button onclick="resetShirt()" class="reset">Reset</button>
         </div>
 
-        <div class="shirt-display">
+        <div class="shirt-display" draggable="true">
           <div id="shirt-body">
             <div id="pocket"></div>
             <div id="left-sleeve"></div>
@@ -105,6 +144,85 @@
           </div>
         </div>
       </div>
+      <div class="checkout">
+        <div class="cart"></div>
+        <div class="form">
+          <form>
+            <label
+              >First Name:
+              <input
+                type="text"
+                class="fname"
+                placeholder="Enter your first name"
+              />
+              <div class="valid-message">Min of 1 Letter</div>
+            </label>
+            <label
+              >Last Name:
+              <input
+                type="text"
+                class="lname"
+                placeholder="Enter your last name"
+              />
+              <div class="valid-message">Min of 1 Letter</div>
+            </label>
+            <label
+              >Address:
+              <input
+                type="text"
+                class="address"
+                placeholder="123 Main Street"
+              />
+              <div class="valid-message">Letters or Numbers</div>
+            </label>
+            <label
+              >State:
+              <input type="text" class="state" placeholder="Utah" />
+              <div class="valid-message">Min of 2 Letters</div>
+            </label>
+
+            <div class="form-row">
+              <label
+                >Optional Apt:
+                <input type="text" class="apt" placeholder="Apt #" />
+                <div class="valid-message">Format: #123</div>
+              </label>
+              <label
+                >Zip:
+                <input type="text" class="zip" placeholder="12345" />
+                <div class="valid-message">Min of 5 Numbers</div>
+              </label>
+            </div>
+
+            <label
+              >City:
+              <input type="text" class="city" placeholder="Enter your city" />
+              <div class="valid-message">Min of 1 Letter</div>
+            </label>
+            <label
+              >Phone Number:
+              <input
+                type="tel"
+                class="telephone"
+                placeholder="(555) 123-4567"
+              />
+              <div class="valid-message">Format: (999) 999-9999</div>
+            </label>
+          </form>
+        </div>
+        <div class="order">
+          <button class="order-button" disabled onclick="placeOrder()">
+            Place Order
+          </button>
+        </div>
+        <div class="button-box">
+          <button class="build-shirt" onclick="displayControls()">
+            Build Shirt
+          </button>
+        </div>
+      </div>
+      <div class="item-ordered"></div>
+      <div class="item-list"></div>
     </main>
   </body>
 </html>
