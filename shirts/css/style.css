@@ -488,7 +488,7 @@ input[type="text"] {
 .cart-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(1fr 3);
+  grid-template-rows: repeat(1fr 4);
   background-color: cadetblue;
   border-radius: 15px;
   padding: 10px;
@@ -518,8 +518,9 @@ input[type="text"] {
 .cart h1 {
   margin: 30px auto 0px auto;
   color: black;
-  width: 206px;
+  width: 225px;
   text-shadow: none;
+  font-family: permanent marker;
 }
 /* Contact Form Styling */
 .valid-message {

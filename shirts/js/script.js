@@ -83,7 +83,6 @@ let itemList = document.querySelector(".item-list");
 // shirt variables
 let blouse;
 let shirts = [];
-let items = [];
 // validation
 let firstName = document.querySelector(".fname");
 let lastName = document.querySelector(".lname");
@@ -184,7 +183,6 @@ function placeOrder() {
   }
   ordered.innerHTML = `<p>Thank you ${firstName.value} ${lastName.value}. Your ${count} shirts will arrive at ${address.value} ASAP (usually takes about a week). If we have any questions, we will contact you at ${phone.value}. We appreciate your business. Take care and have a wonderful day!</p>`;
 
-  cart.innerHTML = "";
   cart.innerHTML = "<h1>Empty Cart<h1>";
   shirts.length = 0;
   cartNum.textContent = "0";
@@ -203,14 +201,21 @@ function itemToCart() {
       <p>Shirt Image: ${shirt.img}</p>
       <p>Shirt Text: ${shirt.text}</p>
       <p>Qty: ${shirt.qty}</p>
+      <p>Cost Per: $20</p>
+      <p>Total Cost: $${shirt.qty * 20}</p>
     `;
     cart.appendChild(cartItem);
-    items.push(cartItem);
   }
+
   let count = 0;
   for (let shirt of shirts) {
     count += shirt.qty;
   }
+  let total = document.createElement("div");
+  total.classList.add("cart-item");
+  total.innerHTML = `<p>Cart Total: </p><p>$${count * 20}</p>`;
+  cart.appendChild(total);
+
   cartNum.textContent = `${count}`;
 }
 function dragEnd() {
